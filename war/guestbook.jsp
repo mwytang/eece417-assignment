@@ -30,7 +30,7 @@
       pageContext.setAttribute("user", user);
 %>
 <p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a> to stay anonymous.)</p>
 <%
     } else {
 %>
