@@ -26,16 +26,21 @@ public class SignGuestbookServlet extends HttpServlet {
         // We have one entity group per Guestbook with all Greetings residing
         // in the same entity group as the Guestbook to which they belong.
         // This lets us run a transactional ancestor query to retrieve all
-        // Greetings for a given Guestbook.  However, the write rate to each
+        // Greetings for a given Guestbook.  However, the w rite rate to each
         // Guestbook should be limited to ~1/second.
         String guestbookName = req.getParameter("guestbookName");
         Key guestbookKey = KeyFactory.createKey("Guestbook", guestbookName);
         String content = req.getParameter("content");
+        String longitude = req.getParameter("longitude");
+        String latitude = req.getParameter("latitude");
         Date date = new Date();
         Entity greeting = new Entity("Greeting", guestbookKey);
         greeting.setProperty("user", user);
         greeting.setProperty("date", date);
         greeting.setProperty("content", content);
+        greeting.setProperty("longitude", longitude);
+        greeting.setProperty("latitude", latitude);
+        greeting.setProperty("nickname", user.getNickname());
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(greeting);
