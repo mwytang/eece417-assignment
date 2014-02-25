@@ -135,7 +135,7 @@ to include your name with greetings you post.</p>
             } else {
                 pageContext.setAttribute("greeting_user",
                                          greeting.getProperty("user"));
-                pageContext.setAttribute("name", greeting.getProperty("nickname"));
+                pageContext.setAttribute("name", greeting.getProperty("user"));
                 %>
                 <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote:</p>
                 <%
