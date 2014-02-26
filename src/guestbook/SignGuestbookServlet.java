@@ -40,7 +40,6 @@ public class SignGuestbookServlet extends HttpServlet {
         greeting.setProperty("content", content);
         greeting.setProperty("longitude", longitude);
         greeting.setProperty("latitude", latitude);
-        greeting.setProperty("nickname", user.getNickname());
 
         DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
         datastore.put(greeting);
